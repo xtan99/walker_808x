@@ -56,5 +56,6 @@ ros2 bag info bag_output
 ```
 Run the following commands to play back bag files in different terminals
 ```
+cd ~/ros2_ws/src/walker_808x/results
 ros2 bag play bag_output
 ```
