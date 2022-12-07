@@ -1,3 +1,13 @@
+/**
+ * @file roomba.cpp
+ * @author Tanmay Haldankar tanmay.n.haldankar@gmail.com
+ * @brief 
+ * @version 0.1
+ * @date 2022-12-06
+ * 
+ * @copyright Copyright (c) 2022
+ * 
+ */
 #include <rclcpp/rclcpp.hpp>
 
 #include <sensor_msgs/msg/image.hpp>
@@ -15,10 +25,16 @@ typedef enum {
   TURN,
 } StateType;
 
-
+/**
+ * @brief Class to create node for publisher and subscriber
+ * 
+ */
 class RoomBa : public rclcpp::Node {
  public:
-
+/**
+ * @brief Construct a new Room Ba object
+ * 
+ */
   RoomBa() :
     Node("walker"),
     state_(STOP)
@@ -43,6 +59,10 @@ class RoomBa : public rclcpp::Node {
     lastImg_ = msg;
   }
 
+/**
+ * @brief function to publish cmd_vle message according to depth camera input 
+ * 
+ */
   void process_callback()
   {
     // Do nothing until the first data read
@@ -85,7 +105,12 @@ class RoomBa : public rclcpp::Node {
     }
   }
 
-
+/**
+ * @brief function to detect objects
+ * 
+ * @return true 
+ * @return false 
+ */
   bool hasObstacle () {
     unsigned char *dataPtr = lastImg_.data.data();
     float* floatData = (float*) dataPtr;
@@ -105,9 +130,6 @@ class RoomBa : public rclcpp::Node {
   }
 
 
-  ////////////////////////////////////////
-  // member variables
-  ////////////////////////////////////////
   rclcpp::Subscription<IMAGE>::SharedPtr subscription_;
   rclcpp::Publisher<TWIST>::SharedPtr    publisher_;
   rclcpp::TimerBase::SharedPtr           timer_;
@@ -115,7 +137,13 @@ class RoomBa : public rclcpp::Node {
   StateType                              state_;
 };
 
-
+/**
+ * @brief main function
+ * 
+ * @param argc 
+ * @param argv 
+ * @return int 
+ */
 int main(int argc, char ** argv)
 {
   rclcpp::init(argc, argv);
