@@ -46,7 +46,7 @@ ros2 bag info bag_output
 
 Run the following command to enable bag file recording(Week-11)
 ```
-ros2 launch beginner_tutorials launch_bag.launch.XML b:=True
+ros2 launch walker_808x launch_bag.launch.XML b:=True
 ros2 bag info bag_output
 ```
 Run the following commands to play back bag files in different terminals
