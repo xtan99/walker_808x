@@ -1,0 +1,12 @@
+
+<launch>
+
+
+  <node pkg="walker_808x" exec="walker" name="walker"/>
+
+  <!-- args that can be set from the command line or a default will be used -->
+  <arg name="b" default="False"/>
+  <group if = "$(var b)">
+    <executable cmd="ros2 bag record -o bag_output -a -x cam" />
+  </group>
+</launch>
