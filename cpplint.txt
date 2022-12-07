@@ -1,0 +1,4 @@
+xtan99@Tanmay_Lenovo:~/ros2_ws/src/walker_808X/src$ cpplint --filter=-build/c++11,+build/c++17,-build/namespaces,-build/include_order roomba.cpp
+roomba.cpp:108:  Using C-style cast.  Use reinterpret_cast<float *>(...) instead  [readability/casting] [4]
+Done processing roomba.cpp
+Total errors found: 1

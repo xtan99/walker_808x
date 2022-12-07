@@ -1,0 +1,4 @@
+xtan99@Tanmay_Lenovo:~/ros2_ws/src/walker_808X/src$ cppcheck --enable=all --std=c++17 --suppress=missingIncludeSystem roomba.cpp
+Checking roomba.cpp ...
+roomba.cpp:108:24: portability: Casting between unsigned char * and float * which have an incompatible binary data representation. [invalidPointerCast]
+    float *floatData = (float *)dataPtr;
