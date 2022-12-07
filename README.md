@@ -28,7 +28,9 @@ colcon build --packages-select walker_808x
 Source ros2 underlay and workspace overlay
 ```
 source /opt/ros/humble/setup.bash
+cd ~/ros2_ws/
 . install/local_setup.bash
+```
 
 Launch the Turtlebot3 gazebo world and delete the turtlebot3 model 
 ```
