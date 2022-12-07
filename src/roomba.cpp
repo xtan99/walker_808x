@@ -29,7 +29,7 @@ class RoomBa : public rclcpp::Node {
     publisher_ = this->create_publisher<TWIST> (pubTopicName, 10);
 
     // creates subscriber to get /demo_cam/mycamera/depth_demo topic
-    auto subTopicName = "/camera/image_raw";
+    auto subTopicName = "cam/my_robot_cam/depth_demo";
     auto subCallback = std::bind(&RoomBa::subscribe_callback, this, _1);
     subscription_ = this->create_subscription<IMAGE> (subTopicName, 10, subCallback);
 
