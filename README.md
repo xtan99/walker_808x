@@ -23,9 +23,12 @@ git clone https://github.com/xtan99/walker_808x.git
 Build Package in Workspace
 ```
 cd ~/ros2_ws/
-colcon build --packages-select beginner_tutorials
+colcon build --packages-select walker_808x
 ```
 Source ros2 underlay and workspace overlay
+```
+source /opt/ros/humble/setup.bash
+. install/local_setup.bash
 
 Launch the Turtlebot3 gazebo world and delete the turtlebot3 model 
 ```
